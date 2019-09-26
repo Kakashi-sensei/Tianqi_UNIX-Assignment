@@ -81,7 +81,37 @@ $ sort -k4,4V teosinte_transposed_genotypes_joined_chr2.bed > teosinte_chr2_orde
 $ sort -k4,4V teosinte_transposed_genotypes_joined_chr1.bed > teosinte_chr1_ordered_increased.bed
 $ sort -k4,4V teosinte_transposed_genotypes_joined_chr10.bed > teosinte_chr10_ordered_increased.bed
 
-$ ??????
+$ sort -k4,4nr teosinte_transposed_genotypes_joined_chr8.bed > teosinte_chr8_ordered_decreased.bed #sort decreased
+
+$ sed 's/?/-/g' teosinte_chr8_ordered_decreased.bed #decreasing position values and with missing data encoded by this symbol: -
+
+$ sed 's/?/-/g' teosinte_transposed_genotypes_joined_chr1.bed | sort -k4,4nr > teosinte_chr1_ordered_decreased.bed
+
+$ sed 's/?/-/g' teosinte_transposed_genotypes_joined_chr2.bed | sort -k4,4nr > teosinte_chr2_ordered_decreased.bed
+
+$ sed 's/?/-/g' teosinte_transposed_genotypes_joined_chr3.bed | sort -k4,4nr > teosinte_chr3_ordered_decreased.bed
+
+$ sed 's/?/-/g' teosinte_transposed_genotypes_joined_chr4.bed | sort -k4,4nr > teosinte_chr4_ordered_decreased.bed
+
+$ sed 's/?/-/g' teosinte_transposed_genotypes_joined_chr5.bed | sort -k4,4nr > teosinte_chr5_ordered_decreased.bed
+
+$ sed 's/?/-/g' teosinte_transposed_genotypes_joined_chr6.bed | sort -k4,4nr > teosinte_chr6_ordered_decreased.bed
+
+$ sed 's/?/-/g' teosinte_transposed_genotypes_joined_chr7.bed | sort -k4,4nr > teosinte_chr7_ordered_decreased.bed
+
+$ sed 's/?/-/g' teosinte_transposed_genotypes_joined_chr9.bed | sort -k4,4nr > teosinte_chr9_ordered_decreased.bed
+
+$ sed 's/?/-/g' teosinte_transposed_genotypes_joined_chr10.bed | sort -k4,4nr > teosinte_chr10_ordered_decreased.bed
+
+
+
+sed 's/?/-/g' teosinte_transposed_genotypes_joined_chr10.bed | sort -k4,4nr > /home/tianqili/Tianqi_UNIX-Assignment/Data-Processing/teosinte_chr10_ordered_decreased.bed
+
+
+/home/tianqili/Tianqi_UNIX-Assignment/Data-Processing
+
+
+
 
 -------another way--------
 

@@ -8,12 +8,7 @@ $wc
 
 2783 lines 2744038 words 11051939 byte 986 columns # words counts of fang_et_al_genotypes.txt
 
--rw-r--r--. 1 tianqili domain users 11051939 Sep 13 13:40 fang_et_al_genotypes.txt
--rw-r--r--. 1 tianqili domain users    82763 Sep 13 13:40 snp_position.txt
-
-$ awk -f transpose.awk fang_et_al_genotypes.txt > transposed_genotypes.txt # transpose file of fang
-
-$ sed 'Nd' file #delete Nline of file
+/home/tianqili/Tianqi_UNIX-Assignment/Data-Processing/
 
 -------START------
 
@@ -101,14 +96,8 @@ $ sed 's/?/-/g' teosinte_transposed_genotypes_joined_chr7.bed | sort -k4,4nr > t
 
 $ sed 's/?/-/g' teosinte_transposed_genotypes_joined_chr9.bed | sort -k4,4nr > teosinte_chr9_ordered_decreased.bed
 
-$ sed 's/?/-/g' teosinte_transposed_genotypes_joined_chr10.bed | sort -k4,4nr > teosinte_chr10_ordered_decreased.bed
+$sed 's/?/-/g' teosinte_transposed_genotypes_joined_chr10.bed | sort -k4,4nr > /home/tianqili/Tianqi_UNIX-Assignment/Data-Processing/teosinte_chr10_ordered_decreased.bed
 
-
-
-sed 's/?/-/g' teosinte_transposed_genotypes_joined_chr10.bed | sort -k4,4nr > /home/tianqili/Tianqi_UNIX-Assignment/Data-Processing/teosinte_chr10_ordered_decreased.bed
-
-
-/home/tianqili/Tianqi_UNIX-Assignment/Data-Processing
 
 
 

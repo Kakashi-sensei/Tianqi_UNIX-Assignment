@@ -39,15 +39,51 @@ $ join -1 1 -2 1 -t $'\t' snp_position_nohead_sorted.txt maize_transposed_genoty
 
 $ join -1 1 -2 1 -t $'\t' snp_position_nohead_sorted.txt teosinte_transposed_genotypes_sorted.txt > teosinte_transposed_genotypes_joined.bed #join snp with teosinte
 
-$ cut -f 3 maize_transposed_genotypes_joined.bed | sed 's/1/chr1/' > maize_transposed_genotypes_chr1_full.bed #build chrom1 group
-$ cut -f 3 maize_transposed_genotypes_joined.bed | sed 's/2/chr2/' > maize_transposed_genotypes_chr2_full.bed
-$ cut -f 3 maize_transposed_genotypes_joined.bed | sed 's/3/chr3/' > maize_transposed_genotypes_chr3_full.bed
-... ...
-$ cut -f 3 teosinte_transposed_genotypes_joined.bed | sed 's/1/chr1/' > teosinte_transposed_genotypes_chr1_full.bed
+$ sort -k3,3 teosinte_transposed_genotypes_joined.bed > teosinte_transposed_genotypes_joined_chr.bed #sort chrom colum
+ 
+$ grep -v "^#" teosinte_transposed_genotypes_joined_chr.bed | cut -f3 | uniq -c #count chro
 
+---output---
+    155 1
+     53 10
+    127 2
+    107 3
+     91 4
+    122 5
+     76 6
+     97 7
+     62 8
+     60 9
+      6 multiple
+     27 unknown
 
+$ sed -n '1,155p' teosinte_transposed_genotypes_joined_chr.bed > teosinte_transposed_genotypes_joined_chr1.bed #chrom1
+$ sed -n '156,208p' teosinte_transposed_genotypes_joined_chr.bed > teosinte_transposed_genotypes_joined_chr10.bed
+$ sed -n '209,335p' teosinte_transposed_genotypes_joined_chr.bed > teosinte_transposed_genotypes_joined_chr2.bed
+$ sed -n '336,442p' teosinte_transposed_genotypes_joined_chr.bed > teosinte_transposed_genotypes_joined_chr3.bed
+$ sed -n '443,533p' teosinte_transposed_genotypes_joined_chr.bed > teosinte_transposed_genotypes_joined_chr4.bed
+$ sed -n '534,655p' teosinte_transposed_genotypes_joined_chr.bed > teosinte_transposed_genotypes_joined_chr5.bed
+$ sed -n '656,731p' teosinte_transposed_genotypes_joined_chr.bed > teosinte_transposed_genotypes_joined_chr6.bed
+$ sed -n '732,828p' teosinte_transposed_genotypes_joined_chr.bed > teosinte_transposed_genotypes_joined_chr7.bed
+$ sed -n '829,890p' teosinte_transposed_genotypes_joined_chr.bed > teosinte_transposed_genotypes_joined_chr8.bed
+$ sed -n '891,950p' teosinte_transposed_genotypes_joined_chr.bed > teosinte_transposed_genotypes_joined_chr9.bed
+$ sed -n '951,956p' teosinte_transposed_genotypes_joined_chr.bed > teosinte_transposed_genotypes_joined_mutiple.bed
+$ sed -n '957,983p' teosinte_transposed_genotypes_joined_chr.bed > teosinte_transposed_genotypes_joined_unknown.bed
 
--------hard way--------
+$ sort -k4,4V teosinte_transposed_genotypes_joined_chr9.bed > teosinte_chr9_ordered_increased.bed #ordered based on increasing position values and with missing data encoded by this symbol: ?
+$ sort -k4,4V teosinte_transposed_genotypes_joined_chr8.bed > teosinte_chr8_ordered_increased.bed
+$ sort -k4,4V teosinte_transposed_genotypes_joined_chr7.bed > teosinte_chr7_ordered_increased.bed
+$ sort -k4,4V teosinte_transposed_genotypes_joined_chr6.bed > teosinte_chr6_ordered_increased.bed
+$ sort -k4,4V teosinte_transposed_genotypes_joined_chr5.bed > teosinte_chr5_ordered_increased.bed
+$ sort -k4,4V teosinte_transposed_genotypes_joined_chr4.bed > teosinte_chr4_ordered_increased.bed
+$ sort -k4,4V teosinte_transposed_genotypes_joined_chr3.bed > teosinte_chr3_ordered_increased.bed
+$ sort -k4,4V teosinte_transposed_genotypes_joined_chr2.bed > teosinte_chr2_ordered_increased.bed
+$ sort -k4,4V teosinte_transposed_genotypes_joined_chr1.bed > teosinte_chr1_ordered_increased.bed
+$ sort -k4,4V teosinte_transposed_genotypes_joined_chr10.bed > teosinte_chr10_ordered_increased.bed
+
+$ ??????
+
+-------another way--------
 
 $ sed -i '2,3d' maize_transposed_genotypes.txt teosinte_transposed_genotypes.txt #delete Sample_ID, JG_OTU, and Group lines
 

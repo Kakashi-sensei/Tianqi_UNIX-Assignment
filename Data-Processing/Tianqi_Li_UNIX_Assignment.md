@@ -289,9 +289,6 @@ $ sed 's/?/-/g' maize_transposed_genotypes_joined_chr10.bed | sort -k4,4nr > /ho
 ```
 decreasing position values and with missing data encoded by this symbol: '-'
 
-###Sum
 
-1.  '$join' cannot join lines which have no commen item. If I use '-a', different items willn't in the same line
-2.  I try to use 'cut' to get the column of chromosomes and change all numbers into letters. But I failed. The output would be the only column. Because there are too many digits. If I can make it into letters, it would be easier to 'grep' lines with different chromosomes
 
 

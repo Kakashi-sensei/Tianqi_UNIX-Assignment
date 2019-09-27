@@ -290,5 +290,33 @@ $ sed 's/?/-/g' maize_transposed_genotypes_joined_chr10.bed | sort -k3,3nr > /ho
 decreasing position values and with missing data encoded by this symbol: '-'
 
 
+###debug
+
+
+```
+$ rm -rf teosinte_transposed_genotypes_joined_mutiple.bed maize_transposed_genotypes_joined_mutiple.bed
+```
+
+```
+$ cd ..
+```
+
+```
+$ grep “mutiple” teosinte_transposed_genotypes_joined.bed > /home/tianqili/Tianqi_UNIX-Assignment/Data-Processing/teosinte_transposed_genotypes_joined_mutiple.bed
+```
+
+```
+$ grep “mutiple” maize_transposed_genotypes_joined.bed > /home/tianqili/Tianqi_UNIX-Assignment/Data-Processing/maize_transposed_genotypes_joined_mutiple.bed
+```
+
+```
+$ cd Data-Processing
+```
+
+```
+$ sed -i '/mutiple/d' maize_chr2_ordered_decreased.bed maize_chr2_ordered_increased.bed maize_chr4_ordered_decreased.bed maize_chr4_ordered_increased.bed maize_chr6_ordered_decreased.bed maize_chr6_ordered_increased.bed maize_chr7_ordered_decreased.bed maize_chr7_ordered_increased.bed maize_chr9_ordered_decreased.bed maize_chr9_ordered_increased.bed teosinte_chr2_ordered_decreased.bed teosinte_chr2_ordered_increased.bed teosinte_chr4_ordered_decreased.bed teosinte_chr4_ordered_increased.bed teosinte_chr6_ordered_decreased.bed teosinte_chr6_ordered_increased.bed teosinte_chr7_ordered_decreased.bed teosinte_chr7_ordered_increased.bed teosinte_chr9_ordered_decreased.bed teosinte_chr9_ordered_increased.bed
+```
+
+There are lines with 'mutiple' position. But their have chromosome numbers. This debug can fix this problem.
 
 

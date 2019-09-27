@@ -319,4 +319,20 @@ $ sed -i '/mutiple/d' maize_chr2_ordered_decreased.bed maize_chr2_ordered_increa
 
 There are lines with 'mutiple' position. But their have chromosome numbers. This debug can fix this problem.
 
+It is not work
+
+I used some new way
+
+```
+$sort -k3,3V maize_transposed_genotypes_joined.bed > maize_transposed_genotypes_joined_333.bed
+```
+```
+$ sed -n '940,956p' maize_transposed_genotypes_joined_333.bed > /home/tianqili/Tianqi_UNIX-Assignment/Data-Processing/maize_transposed_genotypes_joined_mutiple.bed
+```
+```
+sort -k3,3V teosinte_transposed_genotypes_joined.bed > teosinte_transposed_genotypes_joined_333.bed
+```
+```
+$ sed -n '940,956p' teosinte_transposed_genotypes_joined_333.bed > /home/tianqili/Tianqi_UNIX-Assignment/Data-Processing/teosinte_transposed_genotypes_joined_mutiple.bed
+```
 

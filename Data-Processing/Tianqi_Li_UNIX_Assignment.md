@@ -26,7 +26,7 @@ By inspecting this file I learned that:
 ###Date prep of `snp_position.txt` and `fang_et_al_genotypes`
 
 ```
-$ egrep "ZMMLR|ZMMIL|ZMMMR|Sample_ID" fang_et_al_genotypes.txt > maize_fang_et_al_genotypes.txt && egrep "ZMPBA|ZMPIL|ZMPJA|Sample_ID" fang_et_al_genotypes.txt > teosinte_fang_et_al_genotypes.txt && awk -f transpose.awk teosinte_fang_et_al_genotypes.txt > teosinte_transposed_genotypes.txt && awk -f transpose.awk maize_fang_et_al_genotypes.txt > maize_transposed_genotypes.txt && mkdir Data-Processing && sed -i '1,3d' maize_transposed_genotypes.txt teosinte_transposed_genotypes.txt && sed '1d' snp_position.txt > snp_position_nohead.txt sort -k1,1V snp_position_nohead.txt > snp_position_nohead_sorted.txt && sort -k1,1V maize_transposed_genotypes.txt > maize_transposed_genotypes_sorted.txt && sort -k1,1V teosinte_transposed_genotypes.txt > teosinte_transposed_genotypes_sorted.txt && join -1 1 -2 1 -t snp_position_nohead_sorted.txt maize_transposed_genotypes_sorted.txt > maize_transposed_genotypes_joined.bed && join -1 1 -2 1 -t snp_position_nohead_sorted.txt teosinte_transposed_genotypes_sorted.txt > teosinte_transposed_genotypes_joined.bed
+$ egrep "ZMMLR|ZMMIL|ZMMMR|Sample_ID" fang_et_al_genotypes.txt > maize_fang_et_al_genotypes.txt && egrep "ZMPBA|ZMPIL|ZMPJA|Sample_ID" fang_et_al_genotypes.txt > teosinte_fang_et_al_genotypes.txt && awk -f transpose.awk teosinte_fang_et_al_genotypes.txt > teosinte_transposed_genotypes.txt && awk -f transpose.awk maize_fang_et_al_genotypes.txt > maize_transposed_genotypes.txt && mkdir Data-Processing && sed -i '1,3d' maize_transposed_genotypes.txt teosinte_transposed_genotypes.txt && sed '1d' snp_position.txt > snp_position_nohead.txt sort -k1,1V snp_position_nohead.txt > snp_position_nohead_sorted.txt && sort -k1,1V maize_transposed_genotypes.txt > maize_transposed_genotypes_sorted.txt && sort -k1,1V teosinte_transposed_genotypes.txt > teosinte_transposed_genotypes_sorted.txt && join -1 1 -2 1 snp_position_nohead_sorted.txt maize_transposed_genotypes_sorted.txt > maize_transposed_genotypes_joined.bed && join -1 1 -2 1 snp_position_nohead_sorted.txt teosinte_transposed_genotypes_sorted.txt > teosinte_transposed_genotypes_joined.bed
 ```
 
 By inspecting this file I learned that:
@@ -42,15 +42,15 @@ By inspecting this file I learned that:
 ###Teosinte Data
 
 ```
-sort -k3,3 teosinte_transposed_genotypes_joined.bed > teosinte_transposed_genotypes_joined_chr.bed
+sort -k2,2 teosinte_transposed_genotypes_joined.bed > teosinte_transposed_genotypes_joined_chr.bed
 ```
 
-sort teosinte by chromsoms order 'column 3'
+sort teosinte by chromsoms order 'column 2'
 
 
 
 ```
-$ grep -v "^#" teosinte_transposed_genotypes_joined_chr.bed | cut -f3 | uniq -c #count chro
+$ grep -v "^#" teosinte_transposed_genotypes_joined_chr.bed | cut -f2 | uniq -c #count chro
 ```
     output
 
@@ -181,9 +181,9 @@ $ sed 's/?/-/g' teosinte_transposed_genotypes_joined_chr10.bed | sort -k3,3nr > 
 ###Maize Data
 
 ```
-$ sort -k3,3 maize_transposed_genotypes_joined.bed > maize_transposed_genotypes_joined_chr.bed
+$ sort -k2,2 maize_transposed_genotypes_joined.bed > maize_transposed_genotypes_joined_chr.bed
 ```
-Sort in positions orders "3 column"
+Sort in chromosome orders "2 column"
 
 ```
 $ sed -n '1,155p' maize_transposed_genotypes_joined_chr.bed > maize_transposed_genotypes_joined_chr1.bed

@@ -19,6 +19,7 @@ $ egrep "ZMPBA|ZMPIL|ZMPJA|Sample_ID" fang_et_al_genotypes.txt > teosinte_fang_e
 $ awk -f transpose.awk teosinte_fang_et_al_genotypes.txt > teosinte_transposed_genotypes.txt
 $ awk -f transpose.awk maize_fang_et_al_genotypes.txt > maize_transposed_genotypes.txt
 
+$ mdir Data-Processing
 -------easy way--------
 
 $ sed -i '1,3d' maize_transposed_genotypes.txt teosinte_transposed_genotypes.txt #delete Sample_ID, JG_OTU, and Group lines
